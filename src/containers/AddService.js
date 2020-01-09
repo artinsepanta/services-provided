@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import AddService from '../components/AddService'
-import { AddService } from '../redux/actions'
+import { addService } from '../redux/actions'
 
 const mapDispatchToProps = (dispatch) => {
     return {

@@ -7,12 +7,15 @@ import {
     DialogTitle
 } from '@material-ui/core'
 
-class AddCar extends Component {
+
+class AddService extends Component {
     state = {
         open: false,
         ngo: '',
         date: '',
         service: '',
+        goal:'',
+        details:'',
     }
 
     toggleDialog = () => this.setState({ open: !this.state.open })
@@ -40,6 +43,8 @@ class AddCar extends Component {
                 ngo: '',
                 date: '',
                 service: '',
+                goal:'',
+                details:'',
             })
         }
     }
@@ -80,6 +85,18 @@ class AddCar extends Component {
                                     id="service" 
                                     placeholder="Service" 
                                     value={this.state.service} 
+                                    onChange={this.handleTextChange} 
+                                    required />
+                                 <TextField 
+                                    id="goal" 
+                                    placeholder="Goal" 
+                                    value={this.state.goal} 
+                                    onChange={this.handleTextChange} 
+                                    required />
+                                <TextField 
+                                    id="details" 
+                                    placeholder="Details" 
+                                    value={this.state.details} 
                                     onChange={this.handleTextChange} 
                                     required />
                                 <br />

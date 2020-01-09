@@ -6,14 +6,22 @@ import InputLabel from '@material-ui/core/InputLabel';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-
+//import AddService from '../containers/AddService'
+import { //Button,
+   Table, 
+   TableHead, 
+   //TableBody, 
+   TableRow,
+    TableCell,
+     Container } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
   margin: {
     margin: theme.spacing(1),
   },
 }));
 
-export default function Form1() {
+//export default function Form1() {
+  const Form1 = (props) =>{
   const classes = useStyles();
   
 return (
@@ -76,9 +84,32 @@ return (
       />
       </div>
 
-      
+      {/* <div className="flex-container">
+      <AddService serviceTotal={props.services.length} />
+      </div> */}
 
+      <Container>
+        <br/>
+         <div>
+           <h2>Services Provided</h2>
+         </div>
+      <Table  size="small" aria-label="a dense table">
+      <TableHead>
+            <TableRow>
+              <TableCell>Id</TableCell>
+              <TableCell align="right">NGO</TableCell>
+              <TableCell align="right">Date</TableCell>
+              <TableCell align="right">Service</TableCell>
+              <TableCell align="right">Goal</TableCell>
+              <TableCell align="right">Details</TableCell>
+              
+            </TableRow>
+          </TableHead>
+          </Table>
+      </Container>
   </div>
 
   )
 }
+
+export default Form1
