@@ -29,7 +29,7 @@ class AddService extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const payload = { ...this.state }
-        payload.id = this.props.carTotal + 1
+        payload.id = this.props.serviceTotal + 1
         delete payload.open
         console.log("THE SERVICE", payload)
         

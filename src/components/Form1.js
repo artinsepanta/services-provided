@@ -4,16 +4,18 @@ import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 //import AddService from '../containers/AddService'
-import { //Button,
-   Table, 
-   TableHead, 
-   //TableBody, 
-   TableRow,
-    TableCell,
-     Container } from '@material-ui/core';
+import {
+  Button,
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+  Container
+} from '@material-ui/core';
+
+
 const useStyles = makeStyles(theme => ({
   margin: {
     margin: theme.spacing(1),
@@ -21,95 +23,80 @@ const useStyles = makeStyles(theme => ({
 }));
 
 //export default function Form1() {
-  const Form1 = (props) =>{
+const Form1 = (props) => {
   const classes = useStyles();
-  
-return (
+  console.log('newServ', props.services)
+
+  return (
     <div>
+      <div>
+        <FormControl className={classes.margin}>
+          <InputLabel htmlFor="input-with-icon-adornment">ID</InputLabel>
+          <Input
+          />
+          <br />
 
- <div className={classes.margin}>
-        <Grid container spacing={1} alignItems="flex-end">
-          <Grid item>
-            <AccountCircle />
-          </Grid>
-          <Grid item>
-            <TextField id="input-with-icon-grid" label="ID" />
-          </Grid>
-        </Grid>
-      </div>
-      <div className={classes.margin}>
-        <Grid container spacing={1} alignItems="flex-end">
-          <Grid item>
-            <AccountCircle />
-          </Grid>
-          <Grid item>
-            <TextField id="input-with-icon-grid" label="Date" />
-          </Grid>
-        </Grid>
-      </div>
-<div>
- <FormControl className={classes.margin}>
-        <InputLabel htmlFor="input-with-icon-adornment">First Name</InputLabel>
-        <Input
-          
-         
+        </FormControl>
+        <TextField
+          className={classes.margin}
+          id="input-with-icon-textfield"
+          label="First Name"
         />
-      </FormControl>
-      <TextField
-        className={classes.margin}
-        id="input-with-icon-textfield"
-        label="Last Name"
-      />
-      <TextField
-        className={classes.margin}
-        id="input-with-icon-textfield"
-        label="Gender"
-      />
+        <TextField
+          className={classes.margin}
+          id="input-with-icon-textfield"
+          label="Last Name"
+        />
       </div>
-<div>
-<FormControl className={classes.margin}>
-        <InputLabel htmlFor="input-with-icon-adornment">Date of Birth</InputLabel>
-        <Input
-         />
-      </FormControl>
-      <TextField
-        className={classes.margin}
-        id="input-with-icon-textfield"
-        label="Health"
-      />
-      <TextField
-        className={classes.margin}
-        id="input-with-icon-textfield"
-        label="Addiction"
-      />
-      </div>
+      <div>
+        <FormControl className={classes.margin}>
+          <InputLabel htmlFor="input-with-icon-adornment">
+            Gender
+          </InputLabel>
+          <Input
+          />
+        </FormControl>
+        <TextField
+          className={classes.margin}
+          id="input-with-icon-textfield"
+          label="Health"
+        />
 
-      {/* <div className="flex-container">
-      <AddService serviceTotal={props.services.length} />
-      </div> */}
+        <Container>
+          <br />
 
-      <Container>
-        <br/>
-         <div>
-           <h2>Services Provided</h2>
-         </div>
-      <Table  size="small" aria-label="a dense table">
-      <TableHead>
-            <TableRow>
-              <TableCell>Id</TableCell>
-              <TableCell align="right">NGO</TableCell>
-              <TableCell align="right">Date</TableCell>
-              <TableCell align="right">Service</TableCell>
-              <TableCell align="right">Goal</TableCell>
-              <TableCell align="right">Details</TableCell>
-              
-            </TableRow>
-          </TableHead>
+          <div className={classes.button} >
+            <Button onClick={props.fetchServices} variant="contained" color="primary" >
+              services
+            </Button>
+          </div>
+          <h2>Services Provided</h2>
+          <Table size="small" aria-label="a dense table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Id</TableCell>
+                <TableCell align="right">NGO</TableCell>
+                <TableCell align="right">Service</TableCell>
+                <TableCell align="right">Clerk</TableCell>
+
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {props.newServs.map((newServ, idx) => (
+                <TableRow key={newServ.NGO_ID}>
+                  <TableCell component="th" scope="serv">
+                    {serv.NGO_ID}
+                  </TableCell>
+                  <TableCell align="right">{service.service_Service}</TableCell>
+                  <TableCell align="right">{service.service_clerk}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
           </Table>
-      </Container>
-  </div>
-
+        </Container>
+      </div>
+    </div>  
   )
 }
-
+    
 export default Form1
