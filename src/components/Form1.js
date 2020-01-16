@@ -1,10 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
+//import FormControl from '@material-ui/core/FormControl';
+//import Input from '@material-ui/core/Input';
+//import InputLabel from '@material-ui/core/InputLabel';
 import TextField from '@material-ui/core/TextField';
-//import AddService from '../containers/AddService'
+import DeleteIcon from '@material-ui/icons/Delete'
 import {
   Button,
   Table,
@@ -18,25 +18,21 @@ import {
 
 const useStyles = makeStyles(theme => ({
   margin: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(3),
+    width: 200,
   },
 }));
 
-//export default function Form1() {
 const Form1 = (props) => {
   const classes = useStyles();
   console.log('newServ', props.services)
 
   return (
     <div>
+      <br/>
       <div>
-        <FormControl className={classes.margin}>
-          <InputLabel htmlFor="input-with-icon-adornment">ID</InputLabel>
-          <Input
-          />
-          <br />
-
-        </FormControl>
+        <TextField id="outlined-basic" label="ID" variant="outlined" />
+      </div>
         <TextField
           className={classes.margin}
           id="input-with-icon-textfield"
@@ -47,24 +43,23 @@ const Form1 = (props) => {
           id="input-with-icon-textfield"
           label="Last Name"
         />
-      </div>
       <div>
-        <FormControl className={classes.margin}>
-          <InputLabel htmlFor="input-with-icon-adornment">
-            Gender
-          </InputLabel>
-          <Input
-          />
-        </FormControl>
+      <div>  
+        <TextField
+          className={classes.margin}
+          id="input-with-icon-textfield"
+          label="Gender"
+        />
         <TextField
           className={classes.margin}
           id="input-with-icon-textfield"
           label="Health"
         />
-
+      </div> 
         <Container>
           <br />
-
+          <br />
+          <br />
           <div className={classes.button} >
             <Button onClick={props.fetchServices} variant="contained" color="primary" >
               services
@@ -77,21 +72,31 @@ const Form1 = (props) => {
                 <TableCell>Id</TableCell>
                 <TableCell align="right">NGO</TableCell>
                 <TableCell align="right">Service</TableCell>
-                <TableCell align="right">Clerk</TableCell>
-
+                <TableCell align="right">Date</TableCell>
+                {document.cookie == "loggedIn=true" ? (
+                <TableCell align="right">Action</TableCell>
+                ):(null)}
               </TableRow>
             </TableHead>
             <TableBody>
-              {props.newServs.map((newServ, idx) => (
-                <TableRow key={newServ.NGO_ID}>
-                  <TableCell component="th" scope="serv">
-                    {serv.NGO_ID}
-                  </TableCell>
-                  <TableCell align="right">{service.service_Service}</TableCell>
-                  <TableCell align="right">{service.service_clerk}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
+      {props.userServices.map((userService, idx) => (
+          <TableRow key={userService.id}>
+              <TableCell component="th" scope="row">
+                  {userService.id}
+              </TableCell>
+              <TableCell>{userService.ngo}</TableCell>
+              <TableCell>{userService.service}</TableCell>
+              <TableCell>{userService.date}</TableCell>
+              {document.cookie == "loggedIn=true" ? (
+     <TableCell>
+                  <DeleteIcon
+                      onClick={() => props.removUeserService(idx)}
+                      className="icon text-red" />
+              </TableCell>
+               ):(null)}
+          </TableRow>
+      ))}
+      </TableBody>
           </Table>
         </Container>
       </div>

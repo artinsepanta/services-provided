@@ -32,6 +32,7 @@ const Router = () => {
         <Switch>
             <Route path="/login" component={Login} />
             <Route exact path="/" component={Home} />
+            
             <ProtectedRoute exact path="/Form1" component={Form1} />
         </Switch>
      );
