@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/styles';
 import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
 import providedService from '../providedService.json';
+import AddService from './AddService';
 import {
   Button,
   Table,
@@ -19,16 +20,43 @@ import { blue } from '@material-ui/core/colors';
 
 const styles = () => ({
   margin: {
-    margin: '20px',
-    width: 200,
+    margin: '15px',
+    width: '220',
+    marginRight:'10px'
   },
   submitButton: {
-    marginTop:'25px',
-    backgroundColor:'blue',
+    marginTop:'30px',
+    backgroundColor:'#6666ff',
+    border: 'none',
+  color: 'white',
+  padding: '15px 32px',
+  textAlign: 'center',
+  textDecoration: 'none',
+  display: 'inline-block',
+  fontSize: '16px',
+  margin: '4px 2px',
+  cursor: 'pointer'
   },
   buttonContainer: {
     display: 'flex',
     justifyContent: 'center'
+  },
+  serviceButtons: {
+    display: 'flex',
+    justifyContent: 'center'
+    },
+  serviceButton: {
+    // marginTop:'25px',
+    backgroundColor:'#6666ff',
+    border: 'none',
+  color: 'white',
+  padding: '15px 32px',
+  textAlign: 'center',
+  textDecoration: 'none',
+  display: 'inline-block',
+  fontSize: '16px',
+  marginRight:'15px',
+  cursor: 'pointer'
   }
 })
 // const useStyles = makeStyles(theme => ({
@@ -87,6 +115,7 @@ class Form1 extends Component {
                 onChange={ this.handleChange }
               />
             </div>
+            <div>
               <TextField
                 className={classes.margin}
                 id="input-with-icon-textfield"
@@ -103,8 +132,8 @@ class Form1 extends Component {
                 value={ this.state.lastName }
                 onChange={ this.handleChange }
               />
-            <div>
-            <div>  
+            
+              
               <TextField
                 className={classes.margin}
                 id="input-with-icon-textfield"
@@ -121,7 +150,6 @@ class Form1 extends Component {
                 value={ this.state.health }
                 onChange={ this.handleChange }
               />
-            </div>
           </div>
           <div className={ classes.buttonContainer }>
             <Button 
@@ -137,17 +165,22 @@ class Form1 extends Component {
             <br />
             <br />
             <h2>Services Provided</h2>
-            <div>
+            <div className={ classes.serviceButtons }>
               <Button
-                className={ classes.button }
+                className={ classes.serviceButton }
                 onClick={this.props.fetchServices} 
                 variant="contained" 
                 color="primary"
               >
                 services
               </Button>
+              <AddService className={ classes.serviceButton }
+               variant="contained" 
+                color="primary"
+                />
             </div>
-            
+            <br/>
+            <br/>
             <Table size="small" aria-label="a dense table">
               <TableHead>
                 <TableRow>

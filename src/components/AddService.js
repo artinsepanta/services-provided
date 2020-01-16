@@ -9,6 +9,7 @@ import {
 
 
 class AddService extends Component {
+    
     state = {
         open: false,
         ngo: '',
@@ -40,28 +41,26 @@ class AddService extends Component {
     componentDidUpdate = (prevProps, prevState) => {
         if (prevState.open !== this.state.open) {
             this.setState({
+                id:'',
                 ngo: '',
-                date: '',
                 service: '',
-                goal:'',
-                details:'',
+                date: '',
             })
         }
     }
 
     render() {
+        
         return (
             <Fragment>
-                <div style={{ textAlign: 'center' }}>
-                    <h2>Add Service:</h2>
-                    <Button
-                        variant="contained"
-                        className="add-service"
-                        onClick={this.toggleDialog}
-                    >
-                        Add Service
-                    </Button>
-                </div>
+                <Button
+                     color='primary'
+                     variant="contained"
+                     className="addService"
+                    onClick={this.toggleDialog}
+                >
+                    Add Service
+                </Button>
                 <div>
                     <Dialog open={this.state.open} onClose={this.toggleDialog} >
                         <DialogTitle>Add New Service</DialogTitle>
@@ -70,15 +69,15 @@ class AddService extends Component {
                                 onSubmit={this.handleSubmit}
                                 style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
                                 <TextField 
-                                    id="ngo" 
-                                    placeholder="NGO" 
-                                    value={this.state.ngo} 
+                                    id="id" 
+                                    placeholder="ID" 
+                                    value={this.state.id} 
                                     onChange={this.handleTextChange} 
                                     required />
                                 <TextField 
-                                    id="date" 
-                                    placeholder="Date" 
-                                    value={this.state.date} 
+                                    id="ngo" 
+                                    placeholder="NGO" 
+                                    value={this.state.ngo} 
                                     onChange={this.handleTextChange} 
                                     required />
                                 <TextField 
@@ -88,15 +87,9 @@ class AddService extends Component {
                                     onChange={this.handleTextChange} 
                                     required />
                                  <TextField 
-                                    id="goal" 
-                                    placeholder="Goal" 
-                                    value={this.state.goal} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <TextField 
-                                    id="details" 
-                                    placeholder="Details" 
-                                    value={this.state.details} 
+                                    id="date" 
+                                    placeholder="Date" 
+                                    value={this.state.date} 
                                     onChange={this.handleTextChange} 
                                     required />
                                 <br />
