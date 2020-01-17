@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS users,usersServices
 CREATE TABLE users (
- User_ id INT NOT NULL AUTO_INCREMENT,
-  first_name VARCHAR(45),
-  last_name VARCHAR(45),
+ UserId INT NOT NULL AUTO_INCREMENT,
+  firstName VARCHAR(45),
+  lastName VARCHAR(45),
 gender VARCHAR(45),
 health VARCHAR(45),
   PRIMARY KEY (id)
@@ -10,16 +10,16 @@ health VARCHAR(45),
 
 CREATE TABLE usersServices (
 usersServices id INT NOT NULL AUTO_INCREMENT,
-  user_id INT NOT NULL,
+  userId INT NOT NULL,
   ngo VARCHAR(45),
   service VARCHAR(45),
   date VARCHAR(45),
   PRIMARY KEY (id),
-  FOREIGN KEY (user_id)
+  FOREIGN KEY (userId)
   REFERENCES users (id)
 );
 INSERT INTO users
-	(first_name, last_name, gender, health)
+	(firstName, lastName, gender, health)
 VALUES
 (1,"Youlanda","Schemmer","male","healthy"),
   (2,"Dyan","Oldroyd","female","healthy"),
@@ -33,7 +33,7 @@ VALUES
   (10,"Brock","Bolognia","male","healthy");
 
 INSERT INTO usersServices
-	(user_id, ngo, service, date)
+	(,userId, ngo, service, date)
 VALUES
 (1101, 2"COR","Shelter","05/11/2010"),
   (1102, 3"KIR","food","11/13/2017"),
