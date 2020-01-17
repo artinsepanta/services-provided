@@ -9,30 +9,29 @@ import {
 
 
 class AddService extends Component {
-    
     state = {
         open: false,
+        id:'',
         ngo: '',
-        date: '',
         service: '',
-        goal:'',
-        details:'',
+        date: '',
+        action:''
     }
 
     toggleDialog = () => this.setState({ open: !this.state.open })
 
     handleTextChange = (e) => {
         const newState = { ...this.state }
-        newState[e.target.id] = e.target.value
+        newState[e.target.userId] = e.target.value
         this.setState(newState)
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
         const payload = { ...this.state }
-        payload.id = this.props.serviceTotal + 1
+        payload.userId = this.props.serviceTotal + 1
         delete payload.open
-        console.log("THE SERVICE", payload)
+        console.log("THE USERSSERVICES", payload)
         
         this.props.addService(payload)
         this.setState({ open: false })
@@ -103,4 +102,4 @@ class AddService extends Component {
     }
 }
 
-export default AddService
+export default AddService;

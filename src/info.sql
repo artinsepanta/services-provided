@@ -32,8 +32,8 @@ VALUES
   (9,"Blair","Malet","male","healthy"),
   (10,"Brock","Bolognia","male","healthy");
 
-INSERT INTO usersServices
-	(,userId, ngo, service, date)
+INSERT INTO  usersServices
+	(userServiceId, userId, ngo, service, date)
 VALUES
 (1101, 2"COR","Shelter","05/11/2010"),
   (1102, 3"KIR","food","11/13/2017"),

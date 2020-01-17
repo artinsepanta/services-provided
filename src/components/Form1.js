@@ -1,8 +1,5 @@
 import React, { Component, useState } from 'react';
 import { withStyles } from '@material-ui/styles';
-//import FormControl from '@material-ui/core/FormControl';
-//import Input from '@material-ui/core/Input';
-//import InputLabel from '@material-ui/core/InputLabel';
 import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
 import providedService from '../providedService.json';
@@ -16,8 +13,8 @@ import {
   TableCell,
   Container
 } from '@material-ui/core';
-import { blue } from '@material-ui/core/colors';
 
+//Using @material-ui styling
 const styles = () => ({
   margin: {
     margin: '15px',
@@ -28,14 +25,14 @@ const styles = () => ({
     marginTop:'30px',
     backgroundColor:'#6666ff',
     border: 'none',
-  color: 'white',
-  padding: '15px 32px',
-  textAlign: 'center',
-  textDecoration: 'none',
-  display: 'inline-block',
-  fontSize: '16px',
-  margin: '4px 2px',
-  cursor: 'pointer'
+    color: 'white',
+    padding: '15px 32px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    display: 'inline-block',
+    fontSize: '16px',
+    margin: '4px 2px',
+    cursor: 'pointer'
   },
   buttonContainer: {
     display: 'flex',
@@ -44,33 +41,23 @@ const styles = () => ({
   serviceButtons: {
     display: 'flex',
     justifyContent: 'center'
-    },
+  },
   serviceButton: {
-    // marginTop:'25px',
     backgroundColor:'#6666ff',
     border: 'none',
-  color: 'white',
-  padding: '15px 32px',
-  textAlign: 'center',
-  textDecoration: 'none',
-  display: 'inline-block',
-  fontSize: '16px',
-  marginRight:'15px',
-  cursor: 'pointer'
+    color: 'white',
+    padding: '15px 32px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    display: 'inline-block',
+    fontSize: '16px',
+    marginRight:'15px',
+    cursor: 'pointer'
   }
 })
-// const useStyles = makeStyles(theme => ({
-//   margin: {
-//     margin: theme.spacing(3),
-//     width: 200,
-//   },
-// }));
 
-// const classes = useStyles();
-
+//functions in ES6+ then pass in the keyword to access  objects
 class Form1 extends Component {
-  // const [values, handleChange] = useState({ userId: '', firstName: '', lastName: '', gender: '', health: '' })
-  
   state = {
     userId: '',
     firstName: '',
@@ -98,7 +85,6 @@ class Form1 extends Component {
 
   render() {
     const { classes } = this.props;
-
     return (
       <div>
         <br/>
@@ -132,8 +118,6 @@ class Form1 extends Component {
                 value={ this.state.lastName }
                 onChange={ this.handleChange }
               />
-            
-              
               <TextField
                 className={classes.margin}
                 id="input-with-icon-textfield"
@@ -172,7 +156,7 @@ class Form1 extends Component {
                 variant="contained" 
                 color="primary"
               >
-                services
+                Services
               </Button>
               <AddService className={ classes.serviceButton }
                variant="contained" 
@@ -188,27 +172,27 @@ class Form1 extends Component {
                   <TableCell align="right">NGO</TableCell>
                   <TableCell align="right">Service</TableCell>
                   <TableCell align="right">Date</TableCell>
-                  {document.cookie == "loggedIn=true" ? (
+                   {/* {document.cookie == "loggedIn=true" ? ( */}
                   <TableCell align="right">Action</TableCell>
-                  ):(null)}
+                   {/* ):(null)}  */}
                 </TableRow>
               </TableHead>
               <TableBody>
-        {providedService.map((userService, idx) => (
-            <TableRow key={userService.userId}>
-                <TableCell component="th" scope="row">
-                    {userService.userId}
+        {providedService.map((userServices, idx) => (
+            <TableRow key={userServices.userId}>
+                <TableCell component="th" scope="userServices">
+                    {userServices.userId}
                 </TableCell>
-                <TableCell>{userService.ngo}</TableCell>
-                <TableCell>{userService.service}</TableCell>
-                <TableCell>{userService.date}</TableCell>
-                {document.cookie == "loggedIn=true" ? (
-       <TableCell>
-                    <DeleteIcon
-                        onClick={() => this.props.removUeserService(idx)}
+                <TableCell align="right">{userServices.ngo}</TableCell>
+                <TableCell align="right">{userServices.service}</TableCell>
+                <TableCell align="right">{userServices.date}</TableCell>
+                {/* {document.cookie == "loggedIn=true" ? ( */}
+                <TableCell align="right">
+                    <DeleteIcon 
+                        onClick={() => this.props.deleteUeserServices(idx)}
                         className="icon text-red" />
                 </TableCell>
-                 ):(null)}
+                  {/* ):(null)} */}
             </TableRow>
         ))}
         </TableBody>

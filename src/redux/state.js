@@ -1,71 +1,45 @@
 export default {
-  user: {
-      username: 'test-user-1',
-      email:'test-user@example.com'
+  users: {
+    "userId": 2 ,
+    "firstName":"Marti",
+    "lastName":"Jillson",
+    "gender":"male",
+    "health":"ad·dic·tion",
       
   },
-  services:[
+  usersServices:[
     {
-      "id":1,
-      "ngo": 'AB',
-      "service": '',
-      "clerk":""
+      "userServiceId": 11055,
+      "ngo":"DER",
+      "service":"medical",
+      "date":"04/11/2018"
     },
     {
-      "id":2,
-      "ngo": 'AC',
-      "service": '',
-      "clerk":""
+      "userServiceId": 11055,
+    "ngo":"DER",
+    "service":"Food",
+    "date":"01/11/20"
     },
     {
-      "id":3,
-      "ngo": 'AD',
-      "service": '',
-      "clerk":""
+      "userServiceId": 11055,
+      "ngo":"DER",
+      "service":"medical",
+      "date":"04/21/2018"
     },
     {
-      "id":4,
-      "ngo": 'AE',
-      "service": '',
-      "clerk":""
+    "userServiceId": 11055,
+    "ngo":"DER",
+    "service":"shelter",
+    "date":"11/04/2016"
     },
     {
-      "id":5,
-      "ngo": 'AF',
-      "service": '',
-      "clerk":""
+      "userServiceId": 11055,
+    "ngo":"DER",
+    "service":"medical",
+    "date":"04/11/2018"
     },
-    {
-      "id":6,
-      "ngo": 'AG',
-      "service": '',
-      "clerk":""
-    },
-    {
-      "id":7,
-      "ngo": 'AH',
-      "service": '',
-      "clerk":""
-    },
-    {
-      "id":8,
-      "ngo": 'AJ',
-      "service": '',
-      "clerk":""
-    },
-    {
-      "id":9,
-      "ngo": 'AK',
-      "service": '',
-      "clerk":""
-    },
-    {
-      "id":10,
-      "ngo": 'AL',
-      "service": '',
-      "clerk":""
-    }
+
     ],
 
-    newServs:[]
+    ueserServices:[]
 };
