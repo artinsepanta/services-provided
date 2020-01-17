@@ -57,7 +57,7 @@ const styles = () => ({
 })
 
 //functions in ES6+ then pass in the keyword to access  objects
-class Form1 extends Component {
+class Form extends Component {
   state = {
     userId: '',
     firstName: '',
@@ -204,4 +204,4 @@ class Form1 extends Component {
   }
 }
     
-export default withStyles(styles)(Form1)
+export default withStyles(styles)(Form)

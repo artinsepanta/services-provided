@@ -9,14 +9,13 @@ import store from './redux/store'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navigation />
-      
-      <Router />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Navigation/>
+        <Router/>
+      </BrowserRouter>
+    </Provider>
   );
 }
-
-
 
 export default App;

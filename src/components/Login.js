@@ -31,7 +31,7 @@ const useStyles = makeStyles({
    
     document.cookie = `user=${username};max-age=60*1000*5`;
     
-    window.location.replace("/Form1")
+    window.location.replace("/Form")
    
   }
   

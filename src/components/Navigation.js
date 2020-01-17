@@ -43,7 +43,7 @@ export default function ButtonAppBar() {
           </NavLink>
 
           <NavLink exact to="/Form" style={{ textDecoration: 'none', color: 'white' }}>
-            <Button color="inherit">Form 1</Button>
+            <Button color="inherit">Form </Button>
           </NavLink>
 
         </Toolbar>

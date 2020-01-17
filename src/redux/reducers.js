@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 
-const user = (state = null) => state
+const users = (state = null) => state
 
-const services = (state = [], action) => {
+const userServices = (state = [], action) => {
     switch (action.type) {
-        case 'ADD_SERVICE':
+        case 'ADD_USERSERVICES':
             return [...state, action.value]
         default:
             return state
@@ -13,20 +13,21 @@ const services = (state = [], action) => {
 
 // const makes = (state = [], action) => {
 //     switch (action.type) {
-//         case 'FETCH_MAKES':
+//         case 'FETCH_NEWSER':
 //             return action.value
 //         // return [ ...state, action.value ] 
 //         // default:
 //         //     return state
-//         case 'DELETE_MAKE':
-//             const makes = [...state]
+//         case 'DELETE_USERSERVICES':
+//             const NEWSERV = [...state]
 
 //             makes.splice(action.value, 1)
 
-//             return makes
+//             return userServices
 //         default:
 //             return state
 
 //     }
+//}
 
-export default combineReducers({ user, services })
+export default combineReducers({ users, userServices })
