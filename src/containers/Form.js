@@ -1,18 +1,18 @@
 import { connect } from 'react-redux'
 import Form from '../components/Form'
- import { fetchNewServ, deleteUserService } from '../redux/actions'
+ import { fetchNewServs, deleteNewServ } from '../redux/actions'
 
 const mapStateToProps = (state) => {
     return {
         users: state.users,
-        UeserServices:state.UeserServices
+        newServs:state.newServs
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      // fetchNewServs: (newServs) => dispatch(fetchNewServs(newServs)),
-      deleteUserService : (index) => dispatch(deleteUserService (index))
+      // fetchNewServs: (newServ) => dispatch(fetchNewServs(newServs)),
+      deleteNewServ : (index) => dispatch(deleteNewServ (index))
     }
 }
 

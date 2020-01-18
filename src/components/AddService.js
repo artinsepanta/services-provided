@@ -11,7 +11,7 @@ import {
 class AddService extends Component {
     state = {
         open: false,
-        id:'',
+        userId:'',
         ngo: '',
         service: '',
         date: '',
@@ -40,7 +40,7 @@ class AddService extends Component {
     componentDidUpdate = (prevProps, prevState) => {
         if (prevState.open !== this.state.open) {
             this.setState({
-                id:'',
+                userId:'',
                 ngo: '',
                 service: '',
                 date: '',
@@ -52,6 +52,7 @@ class AddService extends Component {
         
         return (
             <Fragment>
+                <div style={{ textAlign: 'center' }}>
                 <Button
                      color='primary'
                      variant="contained"
@@ -60,6 +61,7 @@ class AddService extends Component {
                 >
                     Add Service
                 </Button>
+                </div>
                 <div>
                     <Dialog open={this.state.open} onClose={this.toggleDialog} >
                         <DialogTitle>Add New Service</DialogTitle>
@@ -68,9 +70,9 @@ class AddService extends Component {
                                 onSubmit={this.handleSubmit}
                                 style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
                                 <TextField 
-                                    id="id" 
-                                    placeholder="ID" 
-                                    value={this.state.id} 
+                                    id="userId" 
+                                    placeholder="User ID" 
+                                    value={this.state.userId} 
                                     onChange={this.handleTextChange} 
                                     required />
                                 <TextField 
@@ -97,6 +99,7 @@ class AddService extends Component {
                         </DialogContent>
                     </Dialog>
                 </div>
+            
             </Fragment>
         )
     }

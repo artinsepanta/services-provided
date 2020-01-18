@@ -172,27 +172,27 @@ class Form extends Component {
                   <TableCell align="right">NGO</TableCell>
                   <TableCell align="right">Service</TableCell>
                   <TableCell align="right">Date</TableCell>
-                   {/* {document.cookie == "loggedIn=true" ? ( */}
+                   {document.cookie === "loggedIn=true" ? (
                   <TableCell align="right">Action</TableCell>
-                   {/* ):(null)}  */}
+                   ):(null)} 
                 </TableRow>
               </TableHead>
               <TableBody>
         {providedService.map((userServices, idx) => (
-            <TableRow key={userServices.userId}>
+            <TableRow key={userServices.Id}>
                 <TableCell component="th" scope="userServices">
                     {userServices.userId}
                 </TableCell>
                 <TableCell align="right">{userServices.ngo}</TableCell>
                 <TableCell align="right">{userServices.service}</TableCell>
                 <TableCell align="right">{userServices.date}</TableCell>
-                {/* {document.cookie == "loggedIn=true" ? ( */}
+                {document.cookie === "loggedIn=true" ? (
                 <TableCell align="right">
                     <DeleteIcon 
-                        onClick={() => this.props.deleteUeserServices(idx)}
+                        onClick={() => this.props.deleteNewServs(idx)}
                         className="icon text-red" />
                 </TableCell>
-                  {/* ):(null)} */}
+                  ):(null)}
             </TableRow>
         ))}
         </TableBody>
