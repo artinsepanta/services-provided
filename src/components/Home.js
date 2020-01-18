@@ -66,9 +66,10 @@ class Home extends Component {
     </div>
 
     <div class="Bacon-Ipsum transition transform ">
+      <br/>
         <div class="box">Dera Charity</div>
-        <div class="box">Dera Charity</div>
-        <div class="box">Dera Charity</div>
+        {/* <div class="box">Dera Charity</div>
+        <div class="box">Dera Charity</div> */}
       </div>
     <div className="section-c" class="grid-card">
         <ul>

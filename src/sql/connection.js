@@ -9,7 +9,7 @@ class Connection {
         connectionLimit: 100,
         host: 'localhost',
         user: 'root',
-        password: 'password',
+        password: 'Idean@2009',
         database: 'admin'
       }
 

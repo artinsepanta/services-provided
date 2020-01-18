@@ -9,12 +9,12 @@ export const addService = (userServices) => {
 
 
 
-export const deleteUserService = (index) => {
- return {
-     type:'DELETE_UserService',
-     value:index
- }
-}
+// export const deleteUserService = (index) => {
+//  return {
+//      type:'DELETE_UserService',
+//      value:index
+//  }
+// }
 // export const fetch = () => {
 //   return (dispatch) => {
 //       fetch('')

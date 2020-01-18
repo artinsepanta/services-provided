@@ -52,7 +52,7 @@ const styles = () => ({
     display: 'inline-block',
     fontSize: '16px',
     marginRight:'15px',
-    cursor: 'pointer'
+    cursor: 'pointer',
   }
 })
 
