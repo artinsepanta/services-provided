@@ -38,14 +38,13 @@ export default function ButtonAppBar() {
             <Button color="inherit">Home</Button>
           </NavLink>
 
-          <NavLink exact to="/Login" style={{ textDecoration: 'none', color: 'white' }}>
+          {/* <NavLink exact to="/Login" style={{ textDecoration: 'none', color: 'white' }}>
             <Button color="inherit">Login</Button>
-          </NavLink>
+          </NavLink> */}
 
           <NavLink exact to="/Form" style={{ textDecoration: 'none', color: 'white' }}>
             <Button color="inherit">Form </Button>
           </NavLink>
-
         </Toolbar>
       </AppBar>
     </div>

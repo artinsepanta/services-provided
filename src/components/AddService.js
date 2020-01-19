@@ -15,7 +15,6 @@ class AddService extends Component {
         ngo: '',
         service: '',
         date: '',
-        action:''
     }
 
     toggleDialog = () => this.setState({ open: !this.state.open })
@@ -31,7 +30,7 @@ class AddService extends Component {
         const payload = { ...this.state }
         payload.userId = this.props.serviceTotal + 1
         delete payload.open
-        console.log("THE USERSSERVICES", payload)
+        console.log("THE SERVICE", payload)
         
         this.props.addService(payload)
         this.setState({ open: false })
@@ -53,6 +52,7 @@ class AddService extends Component {
         return (
             <Fragment>
                 <div style={{ textAlign: 'center' }}>
+                <h1>Add Service:</h1>
                 <Button
                      color='primary'
                      variant="contained"

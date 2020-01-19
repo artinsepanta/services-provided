@@ -1,9 +1,8 @@
 import React, { Component, useState } from 'react';
 import { withStyles } from '@material-ui/styles';
 import TextField from '@material-ui/core/TextField';
-import DeleteIcon from '@material-ui/icons/Delete';
-import providedService from '../providedService.json';
-import AddService from './AddService';
+import users from '../providedService.js';
+import AddService from '../containers/AddService';
 import {
   Button,
   Table,
@@ -15,7 +14,7 @@ import {
 } from '@material-ui/core';
 
 //Using @material-ui styling
-const styles = () => ({
+const styles = (theme) => ({
   margin: {
     margin: '15px',
     width: '220',
@@ -63,7 +62,9 @@ class Form extends Component {
     firstName: '',
     lastName: '',
     gender: '',
-    health: ''
+    health: '',
+    searchName: '',
+    searchResult: []
   }
 
   handleChange = (e) => {
@@ -72,7 +73,7 @@ class Form extends Component {
   }
 
   onSubmit = () => {
-    const newUser = {
+    const newServs = {
       userId: this.state.userId,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
@@ -80,7 +81,14 @@ class Form extends Component {
       health: this.state.health
     }
     // post to mysql database here
-    console.log('newUser', newUser)
+    console.log('newUser', newServs)
+  }
+
+  searchFirstName = () => {
+    let firstName = this.state.firstName
+    let user = users.filter(x => firstName === x.firstName)
+    console.log("user: " + user)
+    this.setState({searchResult : user})
   }
 
   render() {
@@ -152,7 +160,7 @@ class Form extends Component {
             <div className={ classes.serviceButtons }>
               <Button
                 className={ classes.serviceButton }
-                onClick={this.props.fetchServices} 
+                onClick={this.searchFirstName} 
                 variant="contained" 
                 color="primary"
               >
@@ -171,21 +179,18 @@ class Form extends Component {
                   <TableCell>Id</TableCell>
                   <TableCell align="right">NGO</TableCell>
                   <TableCell align="right">Service</TableCell>
-                  <TableCell align="right">Date</TableCell>
-                   {document.cookie === "loggedIn=true" ? (
-                  <TableCell align="right">Action</TableCell>
-                   ):(null)} 
+                  <TableCell align="right">Date</TableCell> 
                 </TableRow>
               </TableHead>
               <TableBody>
-        {providedService.map((userServices, idx) => (
+        {/* {this.searchResult.map((userServices, idx) => (
             <TableRow key={userServices.Id}>
                 <TableCell component="th" scope="userServices">
                     {userServices.userId}
                 </TableCell>
-                <TableCell align="right">{userServices.ngo}</TableCell>
-                <TableCell align="right">{userServices.service}</TableCell>
-                <TableCell align="right">{userServices.date}</TableCell>
+                <TableCell align="right">{userServices.services.ngo}</TableCell>
+                <TableCell align="right">{userServices.services.service}</TableCell>
+                <TableCell align="right">{userServices.services.date}</TableCell>
                 {document.cookie === "loggedIn=true" ? (
                 <TableCell align="right">
                     <DeleteIcon 
@@ -194,7 +199,7 @@ class Form extends Component {
                 </TableCell>
                   ):(null)}
             </TableRow>
-        ))}
+        ))} */}
         </TableBody>
             </Table>
           </Container>

@@ -1,14 +1,16 @@
-[
+const users= [
   {
     "userId": 1 ,
     "firstName":"Scarlet",
     "lastName":"Perez",
     "gender":"female",
     "health":"healthy",
-    "userServiceId":11019 ,
-    "ngo":"FRI",
-    "service":"Finding job",
-    "date":"07/11/2018"
+    "services" : {
+      "userServiceId":11019 ,
+      "ngo":"FRI",
+      "service":"Finding job",
+      "date":"07/11/2018"
+    }  
   },
   {
     "userId": 2 ,
@@ -44,3 +46,5 @@
     "date":"03/12/2019"
   }
 ]
+
+export default users;
