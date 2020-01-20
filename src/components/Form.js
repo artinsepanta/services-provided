@@ -1,8 +1,8 @@
 import React, { Component, useState } from 'react';
 import { withStyles } from '@material-ui/styles';
 import TextField from '@material-ui/core/TextField';
-import users from '../providedService';
-import AddService from '../containers/AddService';
+import providedService from '../providedService.json';
+//import AddService from '../containers/AddService';
 import {
   Button,
   Table,
@@ -12,45 +12,21 @@ import {
   TableCell,
   Container
 } from '@material-ui/core';
+import { blue } from '@material-ui/core/colors';
+
 //Using @material-ui styling
-const styles = (theme) => ({
+  const styles = () => ({
   margin: {
-    margin: '15px',
-    width: '220',
-    marginRight:'10px'
+    margin: '20px',
+    width: 200,
   },
   submitButton: {
-    marginTop:'30px',
-    backgroundColor:'#6666ff',
-    border: 'none',
-    color: 'white',
-    padding: '15px 32px',
-    textAlign: 'center',
-    textDecoration: 'none',
-    display: 'inline-block',
-    fontSize: '16px',
-    margin: '4px 2px',
-    cursor: 'pointer'
+    marginTop:'25px',
+    backgroundColor:'blue',
   },
   buttonContainer: {
     display: 'flex',
     justifyContent: 'center'
-  },
-  serviceButtons: {
-    display: 'flex',
-    justifyContent: 'center'
-  },
-  serviceButton: {
-    backgroundColor:'#6666ff',
-    border: 'none',
-    color: 'white',
-    padding: '15px 32px',
-    textAlign: 'center',
-    textDecoration: 'none',
-    display: 'inline-block',
-    fontSize: '16px',
-    marginRight:'15px',
-    cursor: 'pointer',
   }
 })
 
@@ -61,8 +37,9 @@ class Form extends Component {
     firstName: '',
     lastName: '',
     gender: '',
-    searchName: '',
-    searchResult: []
+    health:'',
+   // searchName: '',
+    //searchResult: []
   }
 
   handleChange = (e) => {
@@ -82,90 +59,138 @@ class Form extends Component {
     console.log('newUser', newServs)
   }
 
-  searchFirstName = () => {
+  //searchFirstName = () => {
     
-    let firstName = this.state.firstName
-    let uid=this.state.userId;
+    //let firstName = this.state.firstName
+    //let uid=this.state.userId;
 
 
-    let user = users.map(x => x.userId == uid)
-    alert(user.firstName)
-    console.log("user: " + user)
-    this.setState({searchResult : user})
-  }
+  //   let user = users.map(x => x.userId == uid)
+  //   alert(user.firstName)
+  //   console.log("user: " + user)
+  //   this.setState({searchResult : user})
+  // }
 
   render() {
     const { classes } = this.props;
-    return (
-      <div>
-        <br/>
+
+      return (
         <div>
-          <div>
-            <div>
-              <TextField
-                className={classes.margin}
-                id="id" 
-                label="ID" 
-                variant="outlined"
-                name="userId"
-                value={ this.state.userId }
-                onChange={ this.handleChange }
-              />
-            </div>
-            <div>
-              <TextField
-                className={classes.margin}
-                id="firstName"
-                name="firstName"
-                label="First Name"
-                value={ this.state.firstName }
-                onChange={ this.handleChange }
-              />
-              <TextField
-                className={classes.margin}
-                id="lastName"
-                name="lastName"
-                label="Last Name"
-                value={ this.state.lastName }
-                onChange={ this.handleChange }
-              />
-              <TextField
-                className={classes.margin}
-                id="gender"
-                name="gender"
-                label="Gender"
-                value={ this.state.gender }
-                onChange={ this.handleChange }
-              />
-          </div>
-          <div className={ classes.buttonContainer }>
-            <Button 
-              className={ classes.submitButton } 
-              onClick={ this.onSubmit }
-            >
-               Submit
-            </Button>
-          </div>
-        </div>
-          <Container>
-            <br />
-            <br />
-            <br />
-            <h2>Services Provided</h2>
-            <div className={ classes.serviceButtons }>
-              <Button
-                className={ classes.serviceButton }
-                onClick={this.searchFirstName} 
-                variant="contained" 
-                color="primary"
-              >
-                Services
-              </Button>
-              <AddService className={ classes.serviceButton }
-               variant="contained" 
-                color="primary"
-                />
-            </div>
+          <br/>
+             <div>
+               <div>
+                  <div>
+                    <TextField
+                      className={classes.margin}
+                      id="outlined-basic" 
+                      label="ID" 
+                      variant="outlined"
+                      name="userId"
+                      value={ this.state.userId }
+                      onChange={ this.handleChange }
+                    />
+                  </div>
+      
+                    <TextField
+                      className={classes.margin}
+                      id="input-with-icon-textfield"
+                      name="firstName"
+                      label="First Name"
+                      value={ this.state.firstName }
+                      onChange={ this.handleChange }
+                    />
+                    <TextField
+                      className={classes.margin}
+                      id="input-with-icon-textfield1"
+                      name="lastName"
+                      label="Last Name"
+                      value={ this.state.lastName }
+                      onChange={ this.handleChange }
+                    />
+                    <TextField
+                      className={classes.margin}
+                      id="input-with-icon-textfield2"
+                      name="gender"
+                      label="Gender"
+                      value={ this.state.gender }
+                      onChange={ this.handleChange }
+                    />
+                    <TextField
+                      className={classes.margin}
+                      id="input-with-icon-textfield3"
+                      name="health"
+                      label="Health"
+                      value={ this.state.health }
+                      onChange={ this.handleChange }
+                    />
+                  </div>
+                </div> 
+
+                <div className={ classes.buttonContainer }>
+                  <Button 
+                    className={ classes.submitButton } 
+                    onClick={ this.onSubmit }
+                  >
+                    New User
+                 </Button>
+                </div>
+
+                  <Container>
+                    <h2>Services Provided</h2>
+                    {/* <div className={ classes.serviceButtons }> */}
+                    <div>
+                    <Button
+                      // className={ classes.serviceButton }
+                     // onClick={this.searchFirstName} 
+                      onClick={this.props.fetchServices} 
+                      variant="contained" 
+                      color="primary"
+                    >
+                      Services
+                    </Button>
+                    </div>
+
+             
+                    <Table size="small" aria-label="a dense table">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>Id</TableCell>
+                          <TableCell align="right">NGO</TableCell>
+                          <TableCell align="right">Service</TableCell>
+                          <TableCell align="right">Date</TableCell>
+                          {document.cookie == "loggedIn=true" ? (
+                          <TableCell align="right">Action</TableCell>
+                          ):(null)}
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {providedService.map((userService, idx) => (
+                        <TableRow key={userService.userId}>
+
+                          <TableCell component="th" scope="row">
+                            {userService.userId}
+                          </TableCell>
+
+                          <TableCell>
+                            {userService.ngo}
+                          </TableCell>
+
+                          <TableCell>
+                            {userService.service}
+                          </TableCell>
+                          <TableCell>
+                            {userService.date}
+                          </TableCell>
+                         </TableRow>
+                        ))}      
+                      </TableBody>
+                    </Table>
+                  </Container>
+                </div>
+               )
+    }
+  }
+            {/* </div>
             <br/>
             <br/>
             <Table size="small" aria-label="a dense table">
@@ -195,13 +220,14 @@ class Form extends Component {
                   ):(null)}
             </TableRow>
         ))} */}
-        </TableBody>
-            </Table>
-          </Container>
-        </div>
-      </div>  
-    )
-  }
-}
-    
+//         </TableBody>
+//             </Table>
+//           </Container>
+//         </div>
+//       </div>  
+//     )
+//   }
+// } */}
+
+
 export default withStyles(styles)(Form)

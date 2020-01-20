@@ -1,5 +1,6 @@
 
-  const users= [
+  
+    [
         {
     "userId": 1 ,
     "firstName":"Scarlet",
@@ -53,5 +54,5 @@
     }
   }
 ]
-export default users;
+
 
