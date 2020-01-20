@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import { withStyles } from '@material-ui/styles';
 import TextField from '@material-ui/core/TextField';
-import users from '../providedService.js';
+import users from '../providedService';
 import AddService from '../containers/AddService';
 import {
   Button,
@@ -12,7 +12,6 @@ import {
   TableCell,
   Container
 } from '@material-ui/core';
-
 //Using @material-ui styling
 const styles = (theme) => ({
   margin: {
@@ -62,7 +61,6 @@ class Form extends Component {
     firstName: '',
     lastName: '',
     gender: '',
-    health: '',
     searchName: '',
     searchResult: []
   }
@@ -85,8 +83,13 @@ class Form extends Component {
   }
 
   searchFirstName = () => {
+    
     let firstName = this.state.firstName
-    let user = users.filter(x => firstName === x.firstName)
+    let uid=this.state.userId;
+
+
+    let user = users.map(x => x.userId == uid)
+    alert(user.firstName)
     console.log("user: " + user)
     this.setState({searchResult : user})
   }
@@ -101,7 +104,7 @@ class Form extends Component {
             <div>
               <TextField
                 className={classes.margin}
-                id="outlined-basic" 
+                id="id" 
                 label="ID" 
                 variant="outlined"
                 name="userId"
@@ -112,7 +115,7 @@ class Form extends Component {
             <div>
               <TextField
                 className={classes.margin}
-                id="input-with-icon-textfield"
+                id="firstName"
                 name="firstName"
                 label="First Name"
                 value={ this.state.firstName }
@@ -120,7 +123,7 @@ class Form extends Component {
               />
               <TextField
                 className={classes.margin}
-                id="input-with-icon-textfield"
+                id="lastName"
                 name="lastName"
                 label="Last Name"
                 value={ this.state.lastName }
@@ -128,18 +131,10 @@ class Form extends Component {
               />
               <TextField
                 className={classes.margin}
-                id="input-with-icon-textfield"
+                id="gender"
                 name="gender"
                 label="Gender"
                 value={ this.state.gender }
-                onChange={ this.handleChange }
-              />
-              <TextField
-                className={classes.margin}
-                id="input-with-icon-textfield"
-                name="health"
-                label="Health"
-                value={ this.state.health }
                 onChange={ this.handleChange }
               />
           </div>
@@ -148,7 +143,7 @@ class Form extends Component {
               className={ classes.submitButton } 
               onClick={ this.onSubmit }
             >
-              Submit
+               Submit
             </Button>
           </div>
         </div>

@@ -1,19 +1,19 @@
-import { connect } from 'react-redux'
-import Form from '../components/Form'
- //import { fetchNewServs, deleteNewServ } from '../redux/actions'
+// import { connect } from 'react-redux'
+// import Form from '../components/Form'
+//  //import { fetchNewServs, deleteNewServ } from '../redux/actions'
 
-const mapStateToProps = (state) => {
-    return {
-        users: state.users,
-        newServs:state.newServs
-    }
-}
-
-// const mapDispatchToProps = (dispatch) => {
+// const mapStateToProps = (state) => {
 //     return {
-//       // fetchNewServs: (newServ) => dispatch(fetchNewServs(newServs)),
-//       deleteNewServ : (index) => dispatch(deleteNewServ (index))
+//         users: state.users,
+//         newServs:state.newServs
 //     }
 // }
 
-export default connect(mapStateToProps)(Form)
+// // const mapDispatchToProps = (dispatch) => {
+// //     return {
+// //       // fetchNewServs: (newServ) => dispatch(fetchNewServs(newServs)),
+// //       deleteNewServ : (index) => dispatch(deleteNewServ (index))
+// //     }
+// // }
+
+// export default connect(mapStateToProps)(Form)
