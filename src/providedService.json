@@ -1,38 +1,45 @@
 
   
     [
-        {
+      {
+     "user": {
     "userId": 1 ,
     "firstName":"Scarlet",
     "lastName":"Perez",
     "gender":"female",
-    "health":"healthy",
+    "health":"healthy"
+     },
     "usersServices" : {
       "userServiceId":11019 ,
       "ngo":"FRI",
       "service":"Finding job",
-      "date":"07/11/2018"
-    }  
-  },
-  {
+      "date":"07/11/2018" 
+  }
+},
+ {
+   "user": {
     "userId": 2 ,
     "firstName":"Marti",
     "lastName":"Jillson",
     "gender":"male",
-    "health":"ad·dic·tion",
+    "health":"ad·dic·tion"
+   },
     "usersServices" : {
     "userServiceId": 11055,
     "ngo":"DER",
     "service":"medical",
     "date":"04/11/2018"
-    }
+    
+  }
   },
   {
+   "user": {
     "userId": 3 ,
     "firstName":"Georg",
     "lastName":"Boord",
     "gender":"male",
-    "health":"healthy",
+    "health":"healthy"
+   },
     "usersServices" : {
     "userServiceId":11037 ,
     "ngo":"GBI",
@@ -40,12 +47,15 @@
     "date":"03/12/2019"
     }
   },
+  
   {
+    "user":{
     "userId": 4 ,
     "firstName":"Eorg",
     "lastName":"coorned",
     "gender":"male",
-    "health":"healthy",
+    "health":"healthy"
+    },
     "usersServices" : {
     "userServiceId":11037 ,
     "ngo":"GBI",
@@ -53,6 +63,7 @@
     "date":"03/12/2019"
     }
   }
+
 ]
 
 

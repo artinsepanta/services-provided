@@ -4,8 +4,9 @@ import Form from '../components/Form'
 
 const mapStateToProps = (state) => {
     return {
-        users: state.users,
+        user: state.user,
         newServs:state.newServs
+        
     }
 }
 

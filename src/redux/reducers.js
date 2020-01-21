@@ -1,10 +1,27 @@
 import { combineReducers } from 'redux'
 
-const users = (state = null) => state
 
 const userServices = (state = [], action) => {
     switch (action.type) {
         case 'ADD_USERSERVICES':
+            return [...state, action.value]
+        default:
+            return state
+    }
+}
+
+const newServ = (state = [], action) => {
+    switch (action.type) {
+        case 'SUBMI_NEWUSER':
+            return [...state, action.value]
+        default:
+            return state
+    }
+}
+
+const user = (state = [], action) => {
+    switch (action.type) {
+        case 'EARCH_USER':
             return [...state, action.value]
         default:
             return state
@@ -30,4 +47,4 @@ const userServices = (state = [], action) => {
 //     }
 //}
 
-export default combineReducers({ users, userServices })
+export default combineReducers({ user, userServices,newServ })

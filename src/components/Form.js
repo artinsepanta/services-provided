@@ -23,30 +23,38 @@ import { blue } from '@material-ui/core/colors';
   submitButton: {
     marginTop:'25px',
     backgroundColor:'blue',
+    marginRight:'10px'
+  },
+  searchButton:{
+    marginTop:'25px',
+    backgroundColor:'blue',
+    marginRight:'10px'
   },
   buttonContainer: {
     display: 'flex',
     justifyContent: 'center'
+    
   }
 })
 
 //functions in ES6+ then pass in the keyword to access  objects
 class Form extends Component {
   state = {
+    input: '',
     userId: '',
     firstName: '',
     lastName: '',
     gender: '',
     health:'',
-   // searchName: '',
+   // searchUserId: '',
     //searchResult: []
   }
 
   handleChange = (e) => {
     console.log('event', e.target)
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ userId: e.target.value })
   }
-
+  // Generate new user
   onSubmit = () => {
     const newServs = {
       userId: this.state.userId,
@@ -57,19 +65,48 @@ class Form extends Component {
     }
     // post to mysql database here
     console.log('newUser', newServs)
-  }
+  };
+   
+//   searchUserId =() => {
+//     const user = {
+//       userId:this.state.userId,
+//       firstName:this.state.firstName,
+//       lastName:this.state.lastName,
+//       gender:this.state.gender,
+//       health:this.state.health
+//     }
 
-  //searchFirstName = () => {
-    
-    //let firstName = this.state.firstName
-    //let uid=this.state.userId;
+//   providedService.find(({user}) => {user=== })
+// }
+  
 
-
-  //   let user = users.map(x => x.userId == uid)
-  //   alert(user.firstName)
+//find user by id
+onchange = e =>{
+  this.setState({
+    input:e.target.value,
+    userId:input
+  })
+}
+  
+searchUserId
+ 
+  // searchUser = e => {
+  //   e.preventDefault()
+  //   // let userId = this.state.userId
+  //   alert(providedService.user)
+  //   // let uid=this.state.userId;
+  //   let user = providedService.find(x => x.user)
+  //   // alert(user.userId)
   //   console.log("user: " + user)
   //   this.setState({searchResult : user})
   // }
+  
+    // const   user = providedService.find(({userId}) => 
+    // userId === this.state.userId)
+     
+    // post to mysql database here
+   
+  
 
   render() {
     const { classes } = this.props;
@@ -78,20 +115,22 @@ class Form extends Component {
         <div>
           <br/>
              <div>
-               <div>
+               <form onSubmit={this.searchUser}>
                   <div>
-                    <TextField
+                    <input
+                      key = {this.state.userId}
                       className={classes.margin}
                       id="outlined-basic" 
                       label="ID" 
                       variant="outlined"
                       name="userId"
-                      value={ this.state.userId }
+                      value={ this.state.input}
                       onChange={ this.handleChange }
                     />
                   </div>
       
                     <TextField
+                    
                       className={classes.margin}
                       id="input-with-icon-textfield"
                       name="firstName"
@@ -100,6 +139,7 @@ class Form extends Component {
                       onChange={ this.handleChange }
                     />
                     <TextField
+                    
                       className={classes.margin}
                       id="input-with-icon-textfield1"
                       name="lastName"
@@ -108,6 +148,7 @@ class Form extends Component {
                       onChange={ this.handleChange }
                     />
                     <TextField
+                   
                       className={classes.margin}
                       id="input-with-icon-textfield2"
                       name="gender"
@@ -116,6 +157,7 @@ class Form extends Component {
                       onChange={ this.handleChange }
                     />
                     <TextField
+                    
                       className={classes.margin}
                       id="input-with-icon-textfield3"
                       name="health"
@@ -123,17 +165,26 @@ class Form extends Component {
                       value={ this.state.health }
                       onChange={ this.handleChange }
                     />
-                  </div>
+                     <div className={ classes.buttonContainer }>
+                
+                <Button 
+                   className={ classes.submitButton } 
+                   onClick={ this.onSubmit }
+                 >
+                   New User
+                </Button>
+                   
+                <Button 
+                   className={ classes.searchButton } 
+                    onClick={ this.searchUserId }
+                 >
+                   Search
+                </Button>
+               </div>
+                  </form>
                 </div> 
 
-                <div className={ classes.buttonContainer }>
-                  <Button 
-                    className={ classes.submitButton } 
-                    onClick={ this.onSubmit }
-                  >
-                    New User
-                 </Button>
-                </div>
+               
 
                   <Container>
                     <h2>Services Provided</h2>
@@ -158,9 +209,6 @@ class Form extends Component {
                           <TableCell align="right">NGO</TableCell>
                           <TableCell align="right">Service</TableCell>
                           <TableCell align="right">Date</TableCell>
-                          {document.cookie == "loggedIn=true" ? (
-                          <TableCell align="right">Action</TableCell>
-                          ):(null)}
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -190,44 +238,5 @@ class Form extends Component {
                )
     }
   }
-            {/* </div>
-            <br/>
-            <br/>
-            <Table size="small" aria-label="a dense table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>Id</TableCell>
-                  <TableCell align="right">NGO</TableCell>
-                  <TableCell align="right">Service</TableCell>
-                  <TableCell align="right">Date</TableCell> 
-                </TableRow>
-              </TableHead>
-              <TableBody>
-        {/* {this.searchResult.map((userServices, idx) => (
-            <TableRow key={userServices.Id}>
-                <TableCell component="th" scope="userServices">
-                    {userServices.userId}
-                </TableCell>
-                <TableCell align="right">{userServices.services.ngo}</TableCell>
-                <TableCell align="right">{userServices.services.service}</TableCell>
-                <TableCell align="right">{userServices.services.date}</TableCell>
-                {document.cookie === "loggedIn=true" ? (
-                <TableCell align="right">
-                    <DeleteIcon 
-                        onClick={() => this.props.deleteNewServs(idx)}
-                        className="icon text-red" />
-                </TableCell>
-                  ):(null)}
-            </TableRow>
-        ))} */}
-//         </TableBody>
-//             </Table>
-//           </Container>
-//         </div>
-//       </div>  
-//     )
-//   }
-// } */}
-
 
 export default withStyles(styles)(Form)
