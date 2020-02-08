@@ -28,7 +28,7 @@ export default function ButtonAppBar() {
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+            {/* <MenuIcon /> */}
           </IconButton>
           <Typography variant="h6" className={classes.title}>
           Dera Charity
@@ -38,12 +38,16 @@ export default function ButtonAppBar() {
             <Button color="inherit">Home</Button>
           </NavLink>
 
-          {/* <NavLink exact to="/Login" style={{ textDecoration: 'none', color: 'white' }}>
+           <NavLink exact to="/Login" style={{ textDecoration: 'none', color: 'white' }}>
             <Button color="inherit">Login</Button>
-          </NavLink> */}
+          </NavLink> 
 
           <NavLink exact to="/Form" style={{ textDecoration: 'none', color: 'white' }}>
-            <Button color="inherit">Form </Button>
+            <Button color="inherit">Form1</Button>
+          </NavLink>
+
+          <NavLink exact to="/Form" style={{ textDecoration: 'none', color: 'white' }}>
+            <Button color="inherit">Service REport</Button>
           </NavLink>
         </Toolbar>
       </AppBar>
